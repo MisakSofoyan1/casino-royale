@@ -11,6 +11,11 @@ export const Main = styled.main<{ $bg: string }>`
     justify-content: center;
     padding: 0 20px;
     position: relative;
+    min-height: 854px;
+
+    @media (min-width: 1200px) {
+        min-height: 910px;
+    }
 `;
 
 export const FlexContainer = styled.div`
@@ -54,6 +59,7 @@ export const GameButton = styled.button<{ $color: string }>`
             #ffba47 7.59%,
             #ff8d6b 96.71%
         );
+        transform: translateY(-2px);
     }
 `;
 

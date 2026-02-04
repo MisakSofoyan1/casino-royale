@@ -9,7 +9,7 @@ interface IconProps {
 const DownloadIcon: React.FC<IconProps> = ({ 
   width = "26", 
   height = "26", 
-  color = "currentColor",
+  color = "white",
 }) => {
   return (
     <svg 

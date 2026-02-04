@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGeo } from "src/context/GeoContext";
 import casinoRoyal from "assets/casino-royale.png";
 import slot from "assets/slot.png";
@@ -15,15 +15,18 @@ import {
 } from "./MainSection.styles";
 import { useIsMobile } from "src/hooks/useIsMobile";
 import { generateGameUrl } from "src/utils/gameUrl";
+import { useLanguage } from "src/context/LanguageContext";
 
 export const MainSection: React.FC = () => {
     const [isGameOpen, setIsGameOpen] = useState(false);
 
     const { config } = useGeo();
+    const { language, translations } = useLanguage();
+
     const isMobile = useIsMobile();
 
     const gameUrl = generateGameUrl({
-        lang: config.langCode,
+        lang: language,
         isMobile: isMobile,
     });
 
@@ -32,6 +35,18 @@ export const MainSection: React.FC = () => {
             setIsGameOpen(false);
         }
     };
+
+    useEffect(() => {
+        if (isGameOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isGameOpen]);
 
     return (
         <>
@@ -44,7 +59,7 @@ export const MainSection: React.FC = () => {
                         $color={config.themeColor}
                         onClick={() => setIsGameOpen(true)}
                     >
-                        {config.buttonText}
+                        {translations.buttonText}
                     </GameButton>
                 </FlexContainer>
             </Main>
@@ -55,9 +70,7 @@ export const MainSection: React.FC = () => {
                         &times;
                     </CloseButton>
                     <IframeContainer>
-                        <GameIframe
-                            src={gameUrl}
-                        />
+                        <GameIframe src={gameUrl} />
                     </IframeContainer>
                 </Overlay>
             )}

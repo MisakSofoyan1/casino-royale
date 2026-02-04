@@ -12,7 +12,7 @@ const config: webpack.Configuration = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
-    publicPath: 'auto',
+    publicPath: '/',
   },
 
   resolve: {

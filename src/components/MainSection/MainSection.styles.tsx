@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Main = styled.main<{ $bg: string }>`
     flex: 1;
@@ -9,7 +9,7 @@ export const Main = styled.main<{ $bg: string }>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 10%;
+    padding: 0 20px;
     position: relative;
 `;
 
@@ -55,4 +55,64 @@ export const GameButton = styled.button<{ $color: string }>`
             #ff8d6b 96.71%
         );
     }
+`;
+
+export const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+export const slideUp = keyframes`
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+export const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+    animation: ${fadeIn} 0.3s ease-out;
+`;
+
+export const IframeContainer = styled.div`
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    background: #000;
+    border-radius: 16px;
+    box-shadow: 0 0 40px #000000;
+    animation: ${slideUp} 0.4s ease-out;
+`;
+
+export const CloseButton = styled.button`
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    padding: 0;
+    &:hover {
+        color: #ff7700;
+    }
+`;
+
+export const GameIframe = styled.iframe`
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px;
 `;

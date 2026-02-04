@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GeoProvider } from "./GeoContext";
+import { GeoProvider } from "./context/GeoContext";
 import { MainSection } from "./components/MainSection/MainSection";
 
 const PageWrapper = styled.div`

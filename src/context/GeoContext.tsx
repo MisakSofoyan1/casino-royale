@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import { Region, REGIONS_DATA, GeoConfig } from './config';
+import { Region, REGIONS_DATA, GeoConfig } from '../region/config';
 
 interface GeoContextType {
   region: Region;

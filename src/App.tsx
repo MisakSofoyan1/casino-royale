@@ -1,16 +1,21 @@
 import React from "react";
-import styled from "styled-components";
-import { GeoProvider } from "./context/GeoContext";
+import styled, { ThemeProvider } from "styled-components";
+import { GeoProvider, useGeo } from "./context/GeoContext";
 import { MainSection } from "./components/MainSection/MainSection";
 import { FooterSection } from "./components/Footer/Footer";
 import { LanguageProvider } from "./context/LanguageContext";
+
+export interface ITheme {
+    accent: string;
+    accentHover: string;
+    footer: string;
+}
 
 const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow: hidden;
-    font-family: 'SF Pro Display';
+    font-family: "SF Pro Display";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     button {
@@ -18,15 +23,33 @@ const PageWrapper = styled.div`
     }
 `;
 
-const App: React.FC = () => (
-    <LanguageProvider>
-        <GeoProvider>
+const AppContent: React.FC = () => {
+    const { config } = useGeo();
+
+    const theme: ITheme = {
+        accent: config.themeColor,
+        accentHover: config.hoverColor,
+        footer: config.footerBg,
+    };
+
+    return (
+        <ThemeProvider theme={theme}>
             <PageWrapper>
                 <MainSection />
                 <FooterSection />
             </PageWrapper>
-        </GeoProvider>
-    </LanguageProvider>
-);
+        </ThemeProvider>
+    );
+};
+
+const App: React.FC = () => {
+    return (
+        <LanguageProvider>
+            <GeoProvider>
+                <AppContent />
+            </GeoProvider>
+        </LanguageProvider>
+    );
+};
 
 export default App;

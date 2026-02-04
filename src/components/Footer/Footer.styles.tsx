@@ -80,31 +80,6 @@ export const DownLoadText = styled.div`
     }
 `;
 
-export const DonwloadButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    height: 56px;
-    border-radius: 12px;
-    gap: 8px;
-    background: linear-gradient(84.38deg, #ff8d6b 7.59%, #ffba47 96.71%);
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background: linear-gradient(84.38deg, #ffba47 7.59%, #ff8d6b 96.71%);
-        transform: translateY(-2px);
-    }
-
-    span {
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 590;
-        line-height: 22px;
-    }
-`;
-
 export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;

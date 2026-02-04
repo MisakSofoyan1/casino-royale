@@ -38,31 +38,6 @@ export const SlotImg = styled.img`
     max-width: min(326px, 90%);
 `;
 
-export const GameButton = styled.button<{ $color: string }>`
-    background: ${(props) => props.$color};
-    color: white;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 22px;
-    text-transform: uppercase;
-    border-radius: 8px;
-    cursor: pointer;
-    background-image: linear-gradient(84.38deg, #ff8d6b 7.59%, #ffba47 96.71%);
-    transition: all 0.3s ease;
-    height: 56px;
-    width: 100%;
-
-    &:hover {
-        background-image: linear-gradient(
-            84.38deg,
-            #ffba47 7.59%,
-            #ff8d6b 96.71%
-        );
-        transform: translateY(-2px);
-    }
-`;
-
 export const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
@@ -111,6 +86,7 @@ export const CloseButton = styled.button`
     justify-content: center;
     transition: color 0.2s;
     padding: 0;
+
     &:hover {
         color: #ff7700;
     }

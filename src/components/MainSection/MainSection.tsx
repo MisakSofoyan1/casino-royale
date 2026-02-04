@@ -7,7 +7,6 @@ import {
     FlexContainer,
     RoyalImg,
     SlotImg,
-    GameButton,
     Overlay,
     CloseButton,
     IframeContainer,
@@ -16,6 +15,7 @@ import {
 import { useIsMobile } from "src/hooks/useIsMobile";
 import { generateGameUrl } from "src/utils/gameUrl";
 import { useLanguage } from "src/context/LanguageContext";
+import { AppButton } from "../shared/Button/Button";
 
 export const MainSection: React.FC = () => {
     const [isGameOpen, setIsGameOpen] = useState(false);
@@ -55,12 +55,10 @@ export const MainSection: React.FC = () => {
                     <RoyalImg src={casinoRoyal} />
                     <SlotImg src={slot} />
 
-                    <GameButton
-                        $color={config.themeColor}
+                    <AppButton
+                        text={translations.buttonText}
                         onClick={() => setIsGameOpen(true)}
-                    >
-                        {translations.buttonText}
-                    </GameButton>
+                    />
                 </FlexContainer>
             </Main>
 

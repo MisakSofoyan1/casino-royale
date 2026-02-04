@@ -3,6 +3,7 @@ import {
     AdultWrapper,
     DownLoadText,
     DownLoadWrapper,
+    DropdownGroup,
     FirstSection,
     Footer,
     InfoWrapper,
@@ -49,20 +50,19 @@ export const FooterSection: React.FC = () => {
                         isFooter
                     />
                 </DownLoadWrapper>
-
-                <InfoWrapper>
-                    <AdultWrapper>
-                        <AdultIcon />
-                        <span>{translations.adult}</span>
-                    </AdultWrapper>
-                    <LicenseWrapper>
-                        <LicenseImg src={license} />
-                        <span>{translations.license}</span>
-                    </LicenseWrapper>
-                </InfoWrapper>
             </FirstSection>
+            <InfoWrapper>
+                <AdultWrapper>
+                    <AdultIcon />
+                    <span>{translations.adult}</span>
+                </AdultWrapper>
+                <LicenseWrapper>
+                    <LicenseImg src={license} />
+                    <span>{translations.license}</span>
+                </LicenseWrapper>
+            </InfoWrapper>
             <SecondSection>
-                <div>
+                <DropdownGroup>
                     <Dropdown
                         options={GEO_OPTIONS}
                         currentValue={region}
@@ -73,7 +73,7 @@ export const FooterSection: React.FC = () => {
                         currentValue={language}
                         onSelect={setLanguage}
                     />
-                </div>
+                </DropdownGroup>
                 <SocialMediaWrapper>
                     <span>{translations.social}</span>
                     <SocialIconsRow>

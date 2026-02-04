@@ -1,3 +1,4 @@
+import { ITheme } from "src/App";
 import styled from "styled-components";
 
 export const SelectContainer = styled.div`
@@ -55,12 +56,12 @@ export const IconWrapper = styled.div<{ $isOpen: boolean }>`
     }
 `;
 
-export const DropdownList = styled.div`
+export const DropdownList = styled.div<{ theme: ITheme }>`
     position: absolute;
     top: calc(100%);
     left: 0;
     width: 100%;
-    background: #06225d;
+    background: ${props => props.theme.footer};
     border: 1px solid #ffffff1a;
     border-radius: 8px;
     box-shadow: 0px 10px 30px #00000080;

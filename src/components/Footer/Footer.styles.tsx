@@ -3,20 +3,45 @@ import styled from "styled-components";
 export const Footer = styled.footer`
     padding: 64px 20px;
     display: flex;
-    align-items: center;
-    background: linear-gradient(270deg, #06225d 0%, #02011f 37.03%);
-    justify-content: space-between;
     align-items: stretch;
+    gap: 40px;
+    border-bottom: 1px solid #ffffff1a;
+
+    @media (max-width: 1440px) {
+        gap: 20px;
+    }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
 `;
 
 export const FirstSection = styled.div`
     display: flex;
     align-items: center;
     gap: 40px;
+
+    @media (max-width: 1440px) {
+        gap: 20px;
+    }
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        width: 100%;
+    }
 `;
 
 export const ThumbnailImg = styled.img`
     max-width: 288px;
+
+    @media (max-width: 1440px) {
+        max-width: 240px;
+    }
+
+    @media (max-width: 1200px) {
+        display: none;
+    }
 `;
 
 export const DownLoadWrapper = styled.div`
@@ -53,6 +78,11 @@ export const DownLoadWrapper = styled.div`
 
         pointer-events: none;
     }
+
+    @media (max-width: 480px) { 
+        max-width: max(320px, 90%);
+    }
+
 `;
 
 export const RoyalImg = styled.img`
@@ -86,6 +116,25 @@ export const InfoWrapper = styled.div`
     justify-content: center;
     gap: 20px;
     max-width: 357px;
+
+    @media (max-width: 1440px) {
+        max-width: 285px;
+    }
+
+    @media (max-width: 1200px) {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+        order: 3;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
 `;
 
 export const AdultWrapper = styled.div`
@@ -99,17 +148,35 @@ export const AdultWrapper = styled.div`
         line-height: 22px;
         color: #fbfbfbb2;
     }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        flex: 1;
+        max-width: 287px;
+    }
 `;
 
 export const LicenseWrapper = styled.div`
     display: flex;
     gap: 12px;
     align-items: center;
+
     span {
         font-size: 16px;
         font-weight: 400;
         line-height: 22px;
         color: #fbfbfbb2;
+    }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        flex: 1;
+        max-width: 287px;
+
+        span {
+            text-align: center;
+            max-width: 225px;
+        }
     }
 `;
 
@@ -123,6 +190,23 @@ export const SecondSection = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding-top: 24px;
+    margin-left: auto;
+
+    @media (max-width: 1200px) {
+        order: 2;
+        width: 100%;
+        max-width: 390px;
+        align-items: center;
+        text-align: center;
+        gap: 32px;
+        margin-left: 0;
+    }
+`;
+
+export const DropdownGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 `;
 
 export const SocialMediaWrapper = styled.div`
@@ -137,6 +221,11 @@ export const SocialMediaWrapper = styled.div`
         color: #bababa;
         text-align: right;
     }
+
+    @media (max-width: 1200px) {
+        align-items: center;
+        text-align: center;
+    }
 `;
 
 export const SocialIconsRow = styled.div`
@@ -146,8 +235,8 @@ export const SocialIconsRow = styled.div`
     gap: 4px;
 
     img {
-        width: 58px;
-        height: 58px;
+        width: 52px;
+        height: 52px;
         cursor: pointer;
     }
 `;

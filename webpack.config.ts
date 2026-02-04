@@ -31,8 +31,11 @@ const config: webpack.Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|ts)$/i,
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name].[contenthash][ext]',
+        },
       },
       {
         test: /\.css$/i,

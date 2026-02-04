@@ -9,7 +9,7 @@ export const generateGameUrl = ({ lang, isMobile }: GameUrlParams): string => {
   const params = new URLSearchParams({
     gameId: "n2-novomatic-book-of-ra-deluxe",
     channel: isMobile ? "mobile" : "desktop",
-    partnerKey: "0wl",
+    partnerKey: process.env.PARTNER_KEY || "default-key",
     lobbyUrl: "https://chinchincasino.com",
     mode: "demo",
     language: lang,

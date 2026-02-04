@@ -1,7 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
+import 'webpack-dev-server';
 
-module.exports = {
+const config: webpack.Configuration = {
+  mode: (process.env.NODE_ENV as 'development' | 'production') || 'development',
   entry: './src/index.tsx',
 
   output: {
@@ -40,10 +44,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
+    new Dotenv(),
   ],
 
   devServer: {
     port: 3000,
     hot: true,
+    open: true,
   },
 };
+
+export default config;

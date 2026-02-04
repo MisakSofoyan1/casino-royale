@@ -5,7 +5,7 @@ import Dotenv from 'dotenv-webpack';
 import 'webpack-dev-server';
 
 const config: webpack.Configuration = {
-  mode: (process.env.NODE_ENV as 'development' | 'production') || 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: './src/index.tsx',
 
   output: {

@@ -31,7 +31,7 @@ const config: webpack.Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        test: /\.(png|jpg|jpeg|gif|svg|ts)$/i,
         type: 'asset/resource',
       },
       {

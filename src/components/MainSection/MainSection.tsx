@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useGeo } from "src/context/GeoContext";
-import casinoRoyal from "assets/casino-royale.png";
+import casinoRoyal from "public/assets/casino-royale.png";
 import slot from "assets/slot.png";
 import {
     Main,
